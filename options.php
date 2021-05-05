@@ -1,9 +1,9 @@
 <?php
 /*
    Plugin Name: Side Sticky ADs for WordPress
-   Plugin URI: -
+   Plugin URI: https://github.com/samirdev3/side-sticky-ads-wp
    description: With the help of this plugin you can place sticky Ads on both side of the website (box layout).
-   Version: 1.0.1
+   Version: 1.0.2
    Author: Samir
    Author URI: https://github.com/samirdev3
    License: GPL2+
@@ -29,11 +29,14 @@ if(!function_exists('awt_sticky_ad_code')){
                 </div>
             </div>
             <script>
-                const containerClass = '.tdc-content-wrap'; //Newspaper
-                window.onresize = awtAdCodeFunction;
-                window.onload = awtAdCodeFunction;
+                const   containerClass = '.tdc-content-wrap', //Newspaper
+                        containerDiv = document.querySelector(containerClass);
+                if(containerDiv){
+                    window.onresize = awtAdCodeFunction;
+                    window.onload = awtAdCodeFunction;
+                }
                 function awtAdCodeFunction(){
-                    const   containerW = document.querySelector(containerClass).clientWidth;
+                    const   containerW = containerDiv.clientWidth;
                     let     offSet = (document.body.offsetWidth/2) - ((containerW/2) + 165),
                             mSign = Math.sign(offSet);
                     document.getElementById('awt-left').style.left = `${offSet}px`;
