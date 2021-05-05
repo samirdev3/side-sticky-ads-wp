@@ -2,7 +2,7 @@
 /*
    Plugin Name: Side Sticky ADs for WordPress
    Plugin URI: https://github.com/samirdev3/side-sticky-ads-wp
-   description: With the help of this plugin you can place sticky Ads on both side of the website (box layout).
+   description: With the help of this plugin you can place sticky Ads on both side of the website (box layout). You can change the conatiner size under options.php (the default container size is set to 1200px)
    Version: 1.0.2
    Author: Samir
    Author URI: https://github.com/samirdev3
@@ -29,16 +29,17 @@ if(!function_exists('awt_sticky_ad_code')){
                 </div>
             </div>
             <script>
-                const   containerClass = '.tdc-content-wrap', //Newspaper
-                        containerDiv = document.querySelector(containerClass);
+                const containerClass = '.tdc-content-wrap', //YOUR-CLASS-NAME
+                    containerDiv = document.querySelector(containerClass);
+                let containerW;
                 if(containerDiv){
-                    window.onresize = awtAdCodeFunction;
-                    window.onload = awtAdCodeFunction;
+                    containerW = containerDiv.clientWidth;
                 }else{
-                    console.log('Side Sticky ADs: Please provide a valid class name under options.php');
+                    containerW = 1200;
                 }
+                window.onresize = awtAdCodeFunction;
+                window.onload = awtAdCodeFunction;
                 function awtAdCodeFunction(){
-                    const   containerW = containerDiv.clientWidth;
                     let     offSet = (document.body.offsetWidth/2) - ((containerW/2) + 165),
                             mSign = Math.sign(offSet);
                     document.getElementById('awt-left').style.left = `${offSet}px`;
