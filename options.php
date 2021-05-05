@@ -34,6 +34,8 @@ if(!function_exists('awt_sticky_ad_code')){
                 if(containerDiv){
                     window.onresize = awtAdCodeFunction;
                     window.onload = awtAdCodeFunction;
+                }else{
+                    console.log('Side Sticky ADs: Please provide a valid class name under options.php');
                 }
                 function awtAdCodeFunction(){
                     const   containerW = containerDiv.clientWidth;
