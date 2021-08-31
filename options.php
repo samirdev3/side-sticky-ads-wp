@@ -3,7 +3,7 @@
    Plugin Name: Side Sticky ADs for WordPress
    Plugin URI: https://github.com/samirdev3/side-sticky-ads-wp
    description: With the help of this plugin you can place sticky Ads on both side of the website (box layout). You can change the conatiner size under options.php (the default container size is set to 1200px)
-   Version: 1.0.2
+   Version: 1.0.3
    Author: Samir
    Author URI: https://github.com/samirdev3
    License: GPL2+
@@ -17,7 +17,7 @@ if(!function_exists('awt_sticky_ad_code')){
     function awt_sticky_ad_code(){
         if(!wp_is_mobile()){
         ?>
-            <style>.awt_side_sticky{position:fixed;top:5px;width:160px;height:600px;opacity:0;visibility:hidden;z-index:99998}.awt_side_sticky .revenue{display:block;width:160px;height:600px;background:#eee}</style>
+            <style>.awt_side_sticky{position:fixed;top:5px;width:160px;height:600px;opacity:0;visibility:hidden;background:#f5f5f5;z-index:99998}.awt_side_sticky::before{content:'AD';font-family:arial;font-size:14px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);opacity:.2;z-index:0}.awt_side_sticky .revenue{display:block;width:160px;height:600px;position:relative;text-align:center;z-index:10;cursor: pointer;}</style>
             <div id="awt-left" class="awt_side_sticky">
                 <div class="revenue">
                     <!-- LHS ad code here -->
@@ -35,7 +35,7 @@ if(!function_exists('awt_sticky_ad_code')){
                 if(containerDiv){
                     containerW = containerDiv.clientWidth;
                 }else{
-                    containerW = 1200;
+                    containerW = 1200; //YOUR DESIRED WIDTH
                 }
                 window.onresize = awtAdCodeFunction;
                 window.onload = awtAdCodeFunction;
