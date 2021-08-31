@@ -2,7 +2,7 @@
 /*
    Plugin Name: Side Sticky ADs for WordPress
    Plugin URI: https://github.com/samirdev3/side-sticky-ads-wp
-   description: With the help of this plugin you can place sticky Ads on both side of the website (box layout). You can change the conatiner size under options.php (the default container size is set to 1200px)
+   description: With the help of this plugin you can place sticky Ads on both sides of the website. You can add your container "class" (line 36) OR "width" (line 38) under options.php.
    Version: 1.0.3
    Author: Samir
    Author URI: https://github.com/samirdev3
